@@ -1,0 +1,4 @@
+course_config.toml
+*.yml
+**/test/
+**/tmc/
