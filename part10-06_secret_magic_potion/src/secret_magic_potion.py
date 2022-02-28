@@ -1,4 +1,3 @@
-# Write your solution here:
 class MagicPotion:
     def __init__(self, name: str):
         self._name = name
@@ -12,4 +11,19 @@ class MagicPotion:
         for ingredient in self._ingredients:
             print(f"{ingredient[0]} {ingredient[1]} grams")
 
+class SecretMagicPotion(MagicPotion):
+    def __init__(self, name: str, password: str):
+        super().__init__(name)
+        self.__password = password
 
+    def __validate_passwd(self, password: str):
+        if password != self.__password:
+            raise ValueError("The password is wrong!")
+
+    def add_ingredient(self, ingredient: str, amount: float, password: str):
+        self.__validate_passwd(password)
+        super().add_ingredient(ingredient, amount)
+
+    def print_recipe(self, password: str):
+        self.__validate_passwd(password)
+        super().print_recipe()
