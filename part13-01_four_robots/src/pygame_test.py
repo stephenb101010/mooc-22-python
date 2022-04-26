@@ -9,13 +9,11 @@ width = robot.get_width()
 height = robot.get_height()
 
 window.fill((0, 0, 0))
-
-i = 0
-
-while i < 10:
-    window.blit(robot, (width * i, height))
-    i += 1
-    pygame.display.flip()
+window.blit(robot, (0, 0))
+window.blit(robot, (640 - width, 0))
+window.blit(robot, (0, 480 - height))
+window.blit(robot, (640 - width, 480 - height))
+pygame.display.flip()
 
 while True:
     for event in pygame.event.get():
